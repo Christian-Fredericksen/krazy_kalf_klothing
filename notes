@@ -1,0 +1,20 @@
+:users
+  has_many :carts
+  has_many :items
+  has_many :reviews
+          
+
+:carts 
+  belongs_to :users #has one?
+
+:items 
+      has_many :reviews
+      has_many :users through :reviews
+
+:cart_items
+    belongs_to :users
+              belongs_to :carts
+
+:reviews
+   belongs_to :users
+           belongs_to :items
