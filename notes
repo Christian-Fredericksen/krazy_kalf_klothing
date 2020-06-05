@@ -1,23 +1,15 @@
-:users
-  has_many :carts
-  has_many :items
-  has_many :reviews
-          
+Customer
+has_many :carts
 
-:carts 
-  belongs_to :users #has one?
+Items
+has_many :cart_items
+has_many :carts through: :cart_items 
 
-:items 
-      has_many :reviews
-      has_many :users through :reviews
+Cart_items
+belongs_to :item
+belongs_to :cart
 
-:cart_items
-    belongs_to :users
-              belongs_to :carts
-
-:reviews
-   belongs_to :users
-           belongs_to :items
-
-           test line
-           test line 2
+Cart
+belongs_to :customer
+has_many :cart_items
+has_many :items through: :cart_items
