@@ -4,10 +4,17 @@ class SessionsController < ApplicationController
     end
  
     def create
-        return redirect_to(controller: 'sessions', action: 'new') if !params[:name] || params[:name].empty?
-        session[:name] = params[:name]
-        redirect_to controller: 'customer', action: 'show'
-    end
+        customer = Customer.find_by(email: params[:email])
+        if customer && customer.authenticate(params[:password])
+            session[:customer_id] = customer.id
+          flash[:notice] = "Welcome back"
+          redirect_to customer_path(customer)
+        else
+          render 'new'
+          flash[:notice] = "Please try again"
+        end
+      end
+    
 
     def destroy
         session.clear :name
