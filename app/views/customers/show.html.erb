@@ -1,4 +1,9 @@
- <h2> Welcome to the Store </h2>
- <%= @customer.first_name %>
- <%= @customer.last_name %>
+<h2> Welcome to the Store </h2>
+<%= @customer.first_name %>
+<%= @customer.last_name %>
+ 
+
+
+<%= link_to 'Logout', {:controller => "sessions", :action => 'destroy'}, :method => :delete %>
+
  
