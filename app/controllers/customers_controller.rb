@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
     
     def index
-        @customer = Customer.all
+        @customers = Customer.all
     end
     def new
         @customer = Customer.new
@@ -20,16 +20,8 @@ class CustomersController < ApplicationController
     end
 
     def show
-        @customer = Customer.find_by(params[:id])
+        @customer = Customer.find(params[:id])
     end
-
-
-
-
-
-
-
-
 
     private
     def customer_params

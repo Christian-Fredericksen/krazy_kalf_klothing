@@ -1,8 +1,8 @@
 <h2> Customer List </h2>
 
-<% @customer.each do |c| %>
+<% @customers.each do |c| %>
    <li>
-    <%= link_to c.first_name, customer_path(@customer) %>
+    <%= link_to c.email, customer_path(c) %>
     
 <% end %>
     

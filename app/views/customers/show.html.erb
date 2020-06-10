@@ -6,4 +6,8 @@
 <%= link_to 'My Cart', {:controller => "carts", :action => 'show'} %><br>
 <%= link_to 'Logout', {:controller => "sessions", :action => 'destroy'}, :method => :delete %>
 
- 
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
