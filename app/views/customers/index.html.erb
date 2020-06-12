@@ -1,8 +1,9 @@
 <h2> Customer List </h2>
 
 <% @customers.each do |c| %>
-   <li>
-    <%= link_to c.email, customer_path(c) %>
+   
+    Name: <%= c.first_name %> <%= c.last_name %><br>
+    Email: <%= link_to c.email, customer_path(c) %><br><br>
     
 <% end %>
     

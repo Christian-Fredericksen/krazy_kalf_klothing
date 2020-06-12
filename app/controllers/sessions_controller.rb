@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
           flash[:notice] = "Welcome back"
           redirect_to customer_path(customer)
         else
-          redirect_to customer_path(:new)
+          render :new
           flash[:notice] = "Please try again"
         end
       end
